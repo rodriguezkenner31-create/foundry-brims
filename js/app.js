@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let cart = [];
   let selectedProductForModal = null;
 
-  // Renderizar catálogo
+  // Renderizar catálogo con etiquetas de exclusividad
   function renderProducts() {
     if (!productsGrid) return;
     productsGrid.innerHTML = '';
@@ -41,13 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     products.forEach(product => {
       const card = document.createElement('div');
-      card.className = "group bg-[#EAE5D9]/50 rounded-2xl border border-[#DCD6C8] overflow-hidden hover:shadow-xl transition duration-300 flex flex-col cursor-pointer";
+      card.className = "group bg-[#EAE5D9]/50 rounded-2xl border border-[#DCD6C8] overflow-hidden hover:shadow-xl transition duration-500 flex flex-col cursor-pointer";
       
       card.innerHTML = `
         <div class="aspect-[4/3] w-full overflow-hidden bg-[#DCD6C8]/40 relative">
           <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
           <span class="absolute top-3 left-3 bg-[#1C1B18]/80 backdrop-blur-sm text-[#F4F1EA] text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-md">
             ${product.category}
+          </span>
+          <span class="absolute top-3 right-3 bg-[#1E3A2F]/90 text-[#F4F1EA] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-sm">
+            Stock Limitado
           </span>
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
@@ -218,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeCartBtn.addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', closeCart);
 
-  // Pedido Local a Cúcuta (Directo a WhatsApp sin formularios)
+  // Pedido Local a Cúcuta
   checkoutLocalBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       showToast('Agrega al menos una gorra a tu pedido');
@@ -240,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
-  // Pedido Nacional (Directo a WhatsApp sin formularios)
+  // Pedido Nacional
   checkoutNationalBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       showToast('Agrega al menos una gorra a tu pedido');

@@ -71,8 +71,26 @@
     </div>
   </section>
 
+  <!-- BARRA FLOTANTE DE CONFIANZA (TRUST BAR) -->
+  <section class="bg-[#EAE5D9]/80 border-b border-[#DCD6C8] py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-3">
+        <i class="ph-fill ph-shield-check text-[#1E3A2F] text-xl"></i>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#1C1B18]">Pagos Seguros y Confiables</span>
+      </div>
+      <div class="flex items-center justify-center gap-3">
+        <i class="ph-fill ph-package text-[#1E3A2F] text-xl"></i>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#1C1B18]">Envío Seguro Garantizado</span>
+      </div>
+      <div class="flex items-center justify-center sm:justify-end gap-3">
+        <i class="ph-fill ph-sparkle text-[#1E3A2F] text-xl"></i>
+        <span class="text-xs font-bold uppercase tracking-wider text-[#1C1B18]">Edición Limitada 2026</span>
+      </div>
+    </div>
+  </section>
+
   <!-- SECCIÓN DE DETALLES / CALIDAD -->
-  <section id="detalles" class="bg-[#EAE5D9]/60 border-b border-[#DCD6C8]">
+  <section id="detalles" class="bg-[#F4F1EA] border-b border-[#DCD6C8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="flex items-start gap-4">
         <div class="w-10 h-10 rounded-xl bg-[#1E3A2F] text-[#F4F1EA] flex items-center justify-center shrink-0 font-serif-brand font-bold">1</div>
@@ -106,7 +124,7 @@
     </div>
 
     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-      <!-- Renderizado dinámico -->
+      <!-- Renderizado dinámico con etiqueta de stock limitado -->
     </div>
   </main>
 
@@ -171,7 +189,7 @@
         <span id="cart-total" class="text-xl font-black text-[#1E3A2F]">$0 COP</span>
       </div>
 
-      <!-- BOTONES DE CHECKOUT DIRECTOS SIN CAMPOS DE TEXTO -->
+      <!-- BOTONES DE CHECKOUT DIRECTOS -->
       <div class="space-y-2 pt-1">
         <button id="checkout-local-btn" class="w-full bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition flex items-center justify-center gap-2.5 shadow-md">
           <i class="ph-fill ph-whatsapp-logo text-xl text-emerald-400"></i> PEDIDO LOCAL A CÚCUTA
