@@ -218,20 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
   closeCartBtn.addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', closeCart);
 
-  // Pedido Local (Usa Nombre y Dirección opcionales)
+  // Pedido Local a Cúcuta (Directo a WhatsApp sin formularios)
   checkoutLocalBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       showToast('Agrega al menos una gorra a tu pedido');
       return;
     }
 
-    const name = document.getElementById('client-name').value.trim();
-    const address = document.getElementById('client-address').value.trim();
-
-    let message = `*¡Hola! Quiero realizar un PEDIDO LOCAL A CÚCUTA en FOUNDRY BRIMS:*\n\n`;
-    if (name) message += `👤 *Cliente:* ${name}\n`;
-    if (address) message += `📍 *Dirección:* ${address}\n`;
-    message += `\n*Detalle de gorras:*\n`;
+    let message = `*¡Hola! Quiero realizar un PEDIDO LOCAL A CÚCUTA en FOUNDRY BRIMS:*\n\n*Detalle de gorras:*\n`;
 
     let total = 0;
     cart.forEach(item => {
@@ -242,11 +236,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar la entrega en Cúcuta. ¡Gracias!`;
 
-    const storePhone = "573000000000"; // Reemplaza con tu WhatsApp
+    const storePhone = "573000000000"; // Reemplaza con tu número de WhatsApp
     window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
-  // Pedido Nacional (Va directo a WhatsApp con resumen de productos sin pedir datos intimidantes)
+  // Pedido Nacional (Directo a WhatsApp sin formularios)
   checkoutNationalBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       showToast('Agrega al menos una gorra a tu pedido');
@@ -264,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\n¿Me ayudan por favor con el proceso de pago y envío nacional? ¡Gracias!`;
 
-    const storePhone = "573000000000"; // Reemplaza con tu WhatsApp
+    const storePhone = "573000000000"; // Reemplaza con tu número de WhatsApp
     window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
   });
 

@@ -166,25 +166,18 @@
 
     <div class="p-5 border-t border-[#DCD6C8] bg-[#EAE5D9]/70 space-y-4">
       
-      <!-- FORMULARIO ULTRA SIMPLE PARA LOCAL -->
-      <div class="space-y-2.5">
-        <p class="text-[11px] font-extrabold uppercase tracking-widest text-[#1E3A2F]">Datos de Entrega (Opcional)</p>
-        <input id="client-name" type="text" placeholder="Tu nombre (opcional)" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F4F1EA] border border-[#CFC8B8] text-sm text-[#1C1B18] placeholder-[#8A8478] focus:outline-none focus:border-[#1E3A2F]" />
-        <input id="client-address" type="text" placeholder="Dirección de entrega (opcional)" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F4F1EA] border border-[#CFC8B8] text-sm text-[#1C1B18] placeholder-[#8A8478] focus:outline-none focus:border-[#1E3A2F]" />
-      </div>
-
-      <div class="flex justify-between items-center font-bold pt-1 border-t border-[#DCD6C8]/60">
+      <div class="flex justify-between items-center font-bold pt-1">
         <span class="text-[#5C584F] text-xs uppercase tracking-wider">Total estimado:</span>
         <span id="cart-total" class="text-xl font-black text-[#1E3A2F]">$0 COP</span>
       </div>
 
-      <!-- BOTONES DE CHECKOUT -->
+      <!-- BOTONES DE CHECKOUT DIRECTOS SIN CAMPOS DE TEXTO -->
       <div class="space-y-2 pt-1">
-        <button id="checkout-local-btn" class="w-full bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
-          <i class="ph-fill ph-whatsapp-logo text-lg text-emerald-400"></i> Pedido Local a Cúcuta
+        <button id="checkout-local-btn" class="w-full bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition flex items-center justify-center gap-2.5 shadow-md">
+          <i class="ph-fill ph-whatsapp-logo text-xl text-emerald-400"></i> PEDIDO LOCAL A CÚCUTA
         </button>
-        <button id="checkout-national-btn" class="w-full bg-[#365344] hover:bg-[#25392F] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
-          <i class="ph-fill ph-whatsapp-logo text-lg text-emerald-400"></i> Pedido Nacional (Vía WhatsApp)
+        <button id="checkout-national-btn" class="w-full bg-[#365344] hover:bg-[#25392F] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition flex items-center justify-center gap-2.5 shadow-md">
+          <i class="ph-fill ph-whatsapp-logo text-xl text-emerald-400"></i> PEDIDO NACIONAL
         </button>
       </div>
 
