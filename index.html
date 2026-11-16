@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOUNDRY BRIMS | Gorras Bordadas & Edición Clásica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-[#F4F1EA] text-[#1C1B18] antialiased selection:bg-[#1E3A2F] selection:text-[#F4F1EA]">
+
+  <!-- NAVBAR EDITORIAL -->
+  <header class="sticky top-0 z-40 bg-[#F4F1EA]/90 backdrop-blur-md border-b border-[#DCD6C8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <nav class="hidden md:flex gap-7 text-xs font-bold uppercase tracking-widest text-[#5C584F]">
+        <a href="#catalogo" class="hover:text-[#1E3A2F] transition">Catálogo</a>
+        <a href="#detalles" class="hover:text-[#1E3A2F] transition">Detalles</a>
+      </nav>
+
+      <a href="#" class="text-xl sm:text-2xl font-serif-brand font-bold tracking-wider text-[#1C1B18] flex items-center gap-2">
+        <i class="ph-fill ph-crown text-[#1E3A2F]"></i> FOUNDRY BRIMS
+      </a>
+
+      <button id="open-cart-btn" class="relative px-4 py-2 rounded-full bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] transition flex items-center gap-2 text-xs font-bold uppercase tracking-wider shadow-sm">
+        <i class="ph ph-shopping-bag text-base"></i>
+        <span class="hidden sm:inline">Pedido</span>
+        <span id="cart-badge" class="bg-[#D9CBB5] text-[#1C1B18] text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO PRINCIPAL -->
+  <section class="border-b border-[#DCD6C8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-6 space-y-6">
+        <span class="inline-block text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#1E3A2F] bg-[#1E3A2F]/10 px-3.5 py-1.5 rounded-full">
+          Edición Bordada · Colección 2026
+        </span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif-brand font-bold tracking-tight leading-[1.08] text-[#1C1B18]">
+          CARÁCTER BORDADO EN CADA <span class="text-[#1E3A2F]">VISERA.</span>
+        </h1>
+        <p class="text-[#5C584F] text-base leading-relaxed max-w-md">
+          Diseños bicolores, bordados en alto relieve y acabados clásicos hechos para destacar. Elige la tuya y pídela directo por WhatsApp.
+        </p>
+        <div class="pt-2">
+          <a href="#catalogo" class="inline-flex items-center gap-2.5 bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-xl transition shadow-md">
+            Explorar Colección <i class="ph-bold ph-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-6">
+        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#E6E0D3] border border-[#DCD6C8] shadow-xl">
+          <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=80" 
+               alt="Gorra destacada Foundry Brims" 
+               class="w-full h-full object-cover hover:scale-105 transition duration-700" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE DETALLES / CALIDAD -->
+  <section id="detalles" class="bg-[#EAE5D9]/60 border-b border-[#DCD6C8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-xl bg-[#1E3A2F] text-[#F4F1EA] flex items-center justify-center shrink-0 font-serif-brand font-bold">1</div>
+        <div>
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-[#1C1B18]">Bordado en Alto Relieve</h3>
+          <p class="text-xs text-[#5C584F] mt-1 leading-relaxed">Hilos de alta densidad con acabados precisos en corona y visera.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-xl bg-[#1E3A2F] text-[#F4F1EA] flex items-center justify-center shrink-0 font-serif-brand font-bold">2</div>
+        <div>
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-[#1C1B18]">Viseras en Contraste</h3>
+          <p class="text-xs text-[#5C584F] mt-1 leading-relaxed">Combinaciones bicolores clásicas en tonos crema, tierra y bosque.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-xl bg-[#1E3A2F] text-[#F4F1EA] flex items-center justify-center shrink-0 font-serif-brand font-bold">3</div>
+        <div>
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-[#1C1B18]">Envío en Caja Rígida</h3>
+          <p class="text-xs text-[#5C584F] mt-1 leading-relaxed">Protección total para que llegue intacta a cualquier ciudad del país.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE GORRAS -->
+  <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-widest text-[#1E3A2F]">Selección Exclusiva</span>
+        <h2 class="text-3xl font-serif-brand font-bold text-[#1C1B18] mt-1">NUESTRAS GORRAS</h2>
+      </div>
+
+      <!-- Filtros -->
+      <div id="filter-buttons" class="flex flex-wrap gap-2">
+        <button data-filter="todos" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#1E3A2F] text-[#F4F1EA] transition">Todas</button>
+        <button data-filter="Bicolor" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#EAE5D9] text-[#5C584F] hover:bg-[#DCD6C8] transition">Bicolor</button>
+        <button data-filter="Monograma" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#EAE5D9] text-[#5C584F] hover:bg-[#DCD6C8] transition">Monograma</button>
+        <button data-filter="Clásica" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#EAE5D9] text-[#5C584F] hover:bg-[#DCD6C8] transition">Clásicas</button>
+      </div>
+    </div>
+
+    <!-- Grid de gorras -->
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      <!-- Renderizado desde JS -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#1C1B18] text-[#D9CBB5] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <p class="font-serif-brand font-bold tracking-widest text-sm text-[#F4F1EA]">FOUNDRY BRIMS</p>
+      <p class="text-[#9E978A]">Pedidos directos vía WhatsApp · Envíos nacionales seguros.</p>
+    </div>
+  </footer>
+
+  <!-- DRAWER CARRITO DE PEDIDO -->
+  <div id="cart-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-[#F4F1EA] border-l border-[#DCD6C8] z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+    <div class="p-5 border-b border-[#DCD6C8] flex items-center justify-between bg-[#EAE5D9]/60">
+      <h3 class="text-base font-serif-brand font-bold flex items-center gap-2 text-[#1C1B18]">
+        <i class="ph-fill ph-whatsapp-logo text-[#1E3A2F] text-xl"></i> TU PEDIDO
+      </h3>
+      <button id="close-cart-btn" class="p-2 text-[#5C584F] hover:text-[#1C1B18] rounded-lg bg-[#EAE5D9]">
+        <i class="ph-bold ph-x"></i>
+      </button>
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+
+    <div class="p-5 border-t border-[#DCD6C8] bg-[#EAE5D9]/70 space-y-3">
+      <input id="customer-name" type="text" placeholder="Tu nombre (opcional)" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F4F1EA] border border-[#CFC8B8] text-sm text-[#1C1B18] placeholder-[#8A8478] focus:outline-none focus:border-[#1E3A2F]" />
+      <input id="customer-city" type="text" placeholder="Ciudad de envío (opcional)" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F4F1EA] border border-[#CFC8B8] text-sm text-[#1C1B18] placeholder-[#8A8478] focus:outline-none focus:border-[#1E3A2F]" />
+
+      <div class="flex justify-between items-center font-bold pt-1">
+        <span class="text-[#5C584F] text-xs uppercase tracking-wider">Total estimado:</span>
+        <span id="cart-total" class="text-xl font-black text-[#1E3A2F]">$0 COP</span>
+      </div>
+
+      <button id="checkout-whatsapp-btn" class="w-full bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+        <i class="ph-fill ph-whatsapp-logo text-lg text-emerald-400"></i> Enviar pedido por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-[#1C1B18] text-[#F4F1EA] font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-full shadow-xl opacity-0 pointer-events-none transition-opacity duration-300 z-50"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
