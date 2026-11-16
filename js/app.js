@@ -25,9 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentActiveFilter = 'todos';
   let selectedProductForModal = null;
 
-  // Renderizar productos
+  // Renderizar productos en el catálogo
   function renderProducts(filter = 'todos') {
+    if (!productsGrid) return;
     productsGrid.innerHTML = '';
+    
+    // Verificamos que la variable 'products' exista desde products.js
+    if (typeof products === 'undefined') {
+      productsGrid.innerHTML = `
+        <div class="col-span-full py-12 text-center text-[#5C584F] text-sm">
+          Error: No se pudieron cargar los productos del catálogo.
+        </div>
+      `;
+      return;
+    }
+
     const filteredProducts = filter === 'todos' 
       ? products 
       : products.filter(p => p.category === filter);
@@ -68,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Clic en toda la tarjeta para abrir el modal de Zoom
       card.addEventListener('click', (e) => {
-        // Evitar que se abra si hace clic directo en el botón rápido de agregar
         if (e.target.closest('.add-to-cart-quick')) return;
         openModal(product);
       });
@@ -104,18 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedProductForModal = null;
   }
 
-  closeModalBtn.addEventListener('click', closeModal);
-  productModal.addEventListener('click', (e) => {
-    if (e.target === productModal) closeModal();
-  });
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if (productModal) {
+    productModal.addEventListener('click', (e) => {
+      if (e.target === productModal) closeModal();
+    });
+  }
 
   // Botón de agregar dentro del modal
-  modalAddBtn.addEventListener('click', () => {
-    if (selectedProductForModal) {
-      addToCart(selectedProductForModal.id);
-      closeModal();
-    }
-  });
+  if (modalAddBtn) {
+    modalAddBtn.addEventListener('click', () => {
+      if (selectedProductForModal) {
+        addToCart(selectedProductForModal.id);
+        closeModal();
+      }
+    });
+  }
 
   // Filtrado por categoría
   filterButtons.forEach(btn => {
@@ -186,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartTotal.textContent = `$${totalPrice.toLocaleString('es-CO')} COP`;
 
-    // Eventos de cantidad
     cartItemsContainer.querySelectorAll('.increase-qty').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = parseInt(btn.getAttribute('data-id'));
@@ -213,7 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Toast flotante
   function showToast(message) {
     toast.textContent = message;
     toast.classList.remove('opacity-0', 'pointer-events-none');
@@ -224,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
   }
 
-  // Abrir / Cerrar Drawer Carrito
   openCartBtn.addEventListener('click', () => {
     cartDrawer.classList.remove('translate-x-full');
     cartOverlay.classList.remove('hidden');
@@ -238,7 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeCartBtn.addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', closeCart);
 
-  // Checkout WhatsApp
   checkoutWhatsappBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       showToast('Agrega al menos una gorra a tu pedido');
@@ -262,11 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar el pago y envío. ¡Gracias!`;
 
-    const phone = "573000000000"; // Reemplaza aquí con tu número real de WhatsApp si lo deseas
+    const phone = "573000000000";
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
   });
 
-  // Inicializar catálogo
+  // Inicializar catálogo al cargar
   renderProducts('todos');
 });
