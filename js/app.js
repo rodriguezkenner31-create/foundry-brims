@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartItemsContainer = document.getElementById('cart-items');
   const cartBadge = document.getElementById('cart-badge');
   const cartTotal = document.getElementById('cart-total');
-  const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp-btn');
+  
+  const checkoutLocalBtn = document.getElementById('checkout-local-btn');
+  const checkoutNationalBtn = document.getElementById('checkout-national-btn');
   const toast = document.getElementById('toast');
 
   // Elementos del Modal de Zoom
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let cart = [];
   let selectedProductForModal = null;
 
-  // Renderizar todo el catálogo unificado
+  // Renderizar catálogo
   function renderProducts() {
     if (!productsGrid) return;
     productsGrid.innerHTML = '';
@@ -32,15 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       productsGrid.innerHTML = `
         <div class="col-span-full py-12 text-center text-[#5C584F] text-sm">
           Error: No se pudieron cargar los productos del catálogo.
-        </div>
-      `;
-      return;
-    }
-
-    if (products.length === 0) {
-      productsGrid.innerHTML = `
-        <div class="col-span-full py-12 text-center text-[#5C584F] text-sm">
-          No hay gorras disponibles actualmente.
         </div>
       `;
       return;
@@ -71,13 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
 
-      // Clic en toda la tarjeta para abrir el modal de Zoom
       card.addEventListener('click', (e) => {
         if (e.target.closest('.add-to-cart-quick')) return;
         openModal(product);
       });
 
-      // Clic en el botón rápido de agregar
       const quickBtn = card.querySelector('.add-to-cart-quick');
       quickBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -88,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Abrir Modal de Detalle / Zoom
+  // Modal de Zoom
   function openModal(product) {
     selectedProductForModal = product;
     modalImg.src = product.image;
@@ -124,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Funciones de Carrito
+  // Carrito
   function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
@@ -227,18 +218,19 @@ document.addEventListener('DOMContentLoaded', () => {
   closeCartBtn.addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', closeCart);
 
-  checkoutWhatsappBtn.addEventListener('click', () => {
+  // Pedido Local (Usa Nombre y Dirección opcionales)
+  checkoutLocalBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       showToast('Agrega al menos una gorra a tu pedido');
       return;
     }
 
-    const name = document.getElementById('customer-name').value.trim();
-    const city = document.getElementById('customer-city').value.trim();
+    const name = document.getElementById('client-name').value.trim();
+    const address = document.getElementById('client-address').value.trim();
 
-    let message = `*¡Hola! Quiero hacer el siguiente pedido en FOUNDRY BRIMS:*\n\n`;
+    let message = `*¡Hola! Quiero realizar un PEDIDO LOCAL A CÚCUTA en FOUNDRY BRIMS:*\n\n`;
     if (name) message += `👤 *Cliente:* ${name}\n`;
-    if (city) message += `📍 *Ciudad:* ${city}\n`;
+    if (address) message += `📍 *Dirección:* ${address}\n`;
     message += `\n*Detalle de gorras:*\n`;
 
     let total = 0;
@@ -248,13 +240,33 @@ document.addEventListener('DOMContentLoaded', () => {
       message += `• ${item.quantity}x ${item.name} (${item.priceFormatted}) = $${subtotal.toLocaleString('es-CO')} COP\n`;
     });
 
-    message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar el pago y envío. ¡Gracias!`;
+    message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar la entrega en Cúcuta. ¡Gracias!`;
 
-    const phone = "573000000000";
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+    const storePhone = "573000000000"; // Reemplaza con tu WhatsApp
+    window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
-  // Inicializar catálogo unificado
+  // Pedido Nacional (Va directo a WhatsApp con resumen de productos sin pedir datos intimidantes)
+  checkoutNationalBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+      showToast('Agrega al menos una gorra a tu pedido');
+      return;
+    }
+
+    let message = `*¡Hola! Estoy interesado en hacer un PEDIDO NACIONAL en FOUNDRY BRIMS.*\n\n*Detalle de gorras seleccionadas:*\n`;
+
+    let total = 0;
+    cart.forEach(item => {
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
+      message += `• ${item.quantity}x ${item.name} (${item.priceFormatted}) = $${subtotal.toLocaleString('es-CO')} COP\n`;
+    });
+
+    message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\n¿Me ayudan por favor con el proceso de pago y envío nacional? ¡Gracias!`;
+
+    const storePhone = "573000000000"; // Reemplaza con tu WhatsApp
+    window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
+  });
+
   renderProducts();
 });
