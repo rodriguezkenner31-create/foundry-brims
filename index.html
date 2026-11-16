@@ -60,7 +60,7 @@
 
           <!-- Sello Circular con Fondo Oscuro y Logo Transparente -->
           <div class="relative z-10 w-40 h-40 rounded-full bg-[#12221B] border-4 border-[#DCD6C8]/30 flex items-center justify-center shadow-2xl mb-4 group-hover:scale-105 transition duration-500 overflow-hidden p-3">
-            <img src="img/logotipo_gorras-removebg-preview.png" alt="Foundry Brims Logo Oficial" class="w-full h-full object-contain drop-shadow-lg filter brightness-110" />
+            <img src="img/logotipo_gorras.png" alt="Foundry Brims Logo Oficial" class="w-full h-full object-contain drop-shadow-lg filter brightness-110" />
           </div>
 
           <!-- Textos de marca -->
@@ -123,6 +123,41 @@
       <!-- Renderizado desde JS -->
     </div>
   </main>
+
+  <!-- MODAL DE ZOOM / VISTA DETALLADA DE PRODUCTO -->
+  <div id="product-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity">
+    <div class="bg-[#F4F1EA] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-[#DCD6C8] relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Botón cerrar modal -->
+      <button id="close-modal-btn" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#EAE5D9] hover:bg-[#DCD6C8] text-[#1C1B18] flex items-center justify-center transition shadow-md">
+        <i class="ph-bold ph-x text-lg"></i>
+      </button>
+
+      <div class="grid md:grid-cols-2">
+        <!-- Imagen ampliada -->
+        <div class="bg-[#EAE5D9]/50 aspect-square md:aspect-auto flex items-center justify-center p-6 relative overflow-hidden group">
+          <img id="modal-img" src="" alt="Detalle de gorra" class="w-full h-full object-cover rounded-2xl shadow-md transition-transform duration-500 group-hover:scale-110 cursor-zoom-in" />
+        </div>
+
+        <!-- Información y acciones -->
+        <div class="p-6 sm:p-8 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span id="modal-tag" class="text-[10px] font-extrabold uppercase tracking-widest text-[#1E3A2F] bg-[#1E3A2F]/10 px-3 py-1 rounded-full"></span>
+            <h3 id="modal-title" class="text-2xl font-serif-brand font-bold text-[#1C1B18]"></h3>
+            <p id="modal-price" class="text-xl font-black text-[#1E3A2F]"></p>
+            <p id="modal-desc" class="text-xs text-[#5C584F] leading-relaxed"></p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-[#DCD6C8]">
+            <button id="modal-add-btn" class="w-full bg-[#1E3A2F] hover:bg-[#152921] text-[#F4F1EA] font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+              <i class="ph ph-shopping-bag text-base"></i> Agregar al Pedido
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="bg-[#1C1B18] text-[#D9CBB5] py-10">
