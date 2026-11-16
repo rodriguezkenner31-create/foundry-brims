@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const productsGrid = document.getElementById('products-grid');
-  const filterButtons = document.querySelectorAll('.filter-btn');
   const cartDrawer = document.getElementById('cart-drawer');
   const cartOverlay = document.getElementById('cart-overlay');
   const openCartBtn = document.getElementById('open-cart-btn');
@@ -22,28 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalAddBtn = document.getElementById('modal-add-btn');
 
   let cart = [];
-  let currentActiveFilter = 'todos';
   let selectedProductForModal = null;
 
-  // Renderizar productos en el catálogo
-  function renderProducts(filter = 'todos') {
+  // Renderizar todo el catálogo unificado
+  function renderProducts() {
     if (!productsGrid) return;
     productsGrid.innerHTML = '';
     
-    const filteredProducts = filter === 'todos' 
-      ? products 
-      : products.filter(p => p.category === filter);
-
-    if (filteredProducts.length === 0) {
+    if (typeof products === 'undefined') {
       productsGrid.innerHTML = `
         <div class="col-span-full py-12 text-center text-[#5C584F] text-sm">
-          No hay gorras disponibles en esta categoría actualmente.
+          Error: No se pudieron cargar los productos del catálogo.
         </div>
       `;
       return;
     }
 
-    filteredProducts.forEach(product => {
+    if (products.length === 0) {
+      productsGrid.innerHTML = `
+        <div class="col-span-full py-12 text-center text-[#5C584F] text-sm">
+          No hay gorras disponibles actualmente.
+        </div>
+      `;
+      return;
+    }
+
+    products.forEach(product => {
       const card = document.createElement('div');
       card.className = "group bg-[#EAE5D9]/50 rounded-2xl border border-[#DCD6C8] overflow-hidden hover:shadow-xl transition duration-300 flex flex-col cursor-pointer";
       
@@ -112,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Botón de agregar dentro del modal
   if (modalAddBtn) {
     modalAddBtn.addEventListener('click', () => {
       if (selectedProductForModal) {
@@ -121,21 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // Filtrado por categoría
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('bg-[#1E3A2F]', 'text-[#F4F1EA]');
-        b.classList.add('bg-[#EAE5D9]', 'text-[#5C584F]');
-      });
-      btn.classList.remove('bg-[#EAE5D9]', 'text-[#5C584F]');
-      btn.classList.add('bg-[#1E3A2F]', 'text-[#F4F1EA]');
-
-      currentActiveFilter = btn.getAttribute('data-filter');
-      renderProducts(currentActiveFilter);
-    });
-  });
 
   // Funciones de Carrito
   function addToCart(productId) {
@@ -268,6 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
   });
 
-  // Inicializar catálogo al cargar
-  renderProducts('todos');
+  // Inicializar catálogo unificado
+  renderProducts();
 });

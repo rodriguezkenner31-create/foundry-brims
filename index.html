@@ -58,7 +58,7 @@
           <!-- Fondo texturizado sutil -->
           <div class="absolute inset-0 bg-[radial-gradient(#2c4a3e_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
 
-          <!-- Sello Circular con Fondo Oscuro Original y filtro de brillo para el logo -->
+          <!-- Sello Circular con Fondo Oscuro Original -->
           <div class="relative z-10 w-40 h-40 rounded-full bg-[#12221B] border-4 border-[#DCD6C8]/30 flex items-center justify-center shadow-2xl mb-4 group-hover:scale-105 transition duration-500 overflow-hidden p-3">
             <img src="img/logotipo_gorras-removebg-preview.png" alt="Foundry Brims Logo Oficial" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] brightness-125" />
           </div>
@@ -94,31 +94,21 @@
       <div class="flex items-start gap-4">
         <div class="w-10 h-10 rounded-xl bg-[#1E3A2F] text-[#F4F1EA] flex items-center justify-center shrink-0 font-serif-brand font-bold">3</div>
         <div>
-          <h3 class="text-sm font-extrabold uppercase tracking-wider text-[#1C1B18]">Envío en Caja Rígida</h3>
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-[#1C1B18]">Envío Seguro</h3>
           <p class="text-xs text-[#5C584F] mt-1 leading-relaxed">Protección total para que llegue intacta a cualquier ciudad del país.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CATÁLOGO DE GORRAS -->
+  <!-- CATÁLOGO DE GORRAS (UNIFICADO) -->
   <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-      <div>
-        <span class="text-[11px] font-bold uppercase tracking-widest text-[#1E3A2F]">Selección Exclusiva</span>
-        <h2 class="text-3xl font-serif-brand font-bold text-[#1C1B18] mt-1">NUESTRAS GORRAS</h2>
-      </div>
-
-      <!-- Filtros -->
-      <div id="filter-buttons" class="flex flex-wrap gap-2">
-        <button data-filter="todos" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#1E3A2F] text-[#F4F1EA] transition">Todas</button>
-        <button data-filter="Bicolor" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#EAE5D9] text-[#5C584F] hover:bg-[#DCD6C8] transition">Bicolor</button>
-        <button data-filter="Monograma" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#EAE5D9] text-[#5C584F] hover:bg-[#DCD6C8] transition">Monograma</button>
-        <button data-filter="Clásica" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#EAE5D9] text-[#5C584F] hover:bg-[#DCD6C8] transition">Clásicas</button>
-      </div>
+    <div class="mb-10">
+      <span class="text-[11px] font-bold uppercase tracking-widest text-[#1E3A2F]">Selección Exclusiva</span>
+      <h2 class="text-3xl font-serif-brand font-bold text-[#1C1B18] mt-1">NUESTRAS GORRAS</h2>
     </div>
 
-    <!-- Grid de gorras (Renderizado dinámico desde JS) -->
+    <!-- Grid de gorras (Carga todas las gorras directamente) -->
     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
       <!-- Los productos se cargan aquí automáticamente -->
     </div>
