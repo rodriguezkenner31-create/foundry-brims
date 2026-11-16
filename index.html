@@ -118,28 +118,25 @@
       </div>
     </div>
 
-    <!-- Grid de gorras -->
+    <!-- Grid de gorras (Renderizado dinámico desde JS) -->
     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-      <!-- Renderizado desde JS -->
+      <!-- Los productos se cargan aquí automáticamente -->
     </div>
   </main>
 
-  <!-- MODAL DE ZOOM / VISTA DETALLADA DE PRODUCTO -->
+  <!-- MODAL DE ZOOM / VISTA DETALLADA -->
   <div id="product-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity">
-    <div class="bg-[#F4F1EA] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-[#DCD6C8] relative animate-in fade-in zoom-in-95 duration-200">
+    <div class="bg-[#F4F1EA] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-[#DCD6C8] relative">
       
-      <!-- Botón cerrar modal -->
       <button id="close-modal-btn" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#EAE5D9] hover:bg-[#DCD6C8] text-[#1C1B18] flex items-center justify-center transition shadow-md">
         <i class="ph-bold ph-x text-lg"></i>
       </button>
 
       <div class="grid md:grid-cols-2">
-        <!-- Imagen ampliada -->
-        <div class="bg-[#EAE5D9]/50 aspect-square md:aspect-auto flex items-center justify-center p-6 relative overflow-hidden group">
-          <img id="modal-img" src="" alt="Detalle de gorra" class="w-full h-full object-cover rounded-2xl shadow-md transition-transform duration-500 group-hover:scale-110 cursor-zoom-in" />
+        <div class="bg-[#EAE5D9]/50 aspect-square md:aspect-auto flex items-center justify-center p-6 relative overflow-hidden">
+          <img id="modal-img" src="" alt="Detalle de gorra" class="w-full h-full object-cover rounded-2xl shadow-md" />
         </div>
 
-        <!-- Información y acciones -->
         <div class="p-6 sm:p-8 flex flex-col justify-between space-y-4">
           <div class="space-y-3">
             <span id="modal-tag" class="text-[10px] font-extrabold uppercase tracking-widest text-[#1E3A2F] bg-[#1E3A2F]/10 px-3 py-1 rounded-full"></span>
@@ -199,6 +196,7 @@
   <!-- TOAST -->
   <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-[#1C1B18] text-[#F4F1EA] font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-full shadow-xl opacity-0 pointer-events-none transition-opacity duration-300 z-50"></div>
 
+  <!-- SCRIPTS -->
   <script src="js/products.js"></script>
   <script src="js/app.js"></script>
 </body>
