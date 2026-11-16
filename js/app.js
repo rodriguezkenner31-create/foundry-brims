@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\n¿Me ayudan por favor con el proceso de pago y envío nacional? ¡Gracias!`;
 
-    const storePhone = "573000000000"; // Reemplaza con tu número de WhatsApp
+    const storePhone = "573123187386"; // Reemplaza con tu número de WhatsApp
     window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
