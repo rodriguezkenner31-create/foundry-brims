@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     message += `\n💰 *Total estimado:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para coordinar la entrega en Cúcuta. ¡Gracias!`;
 
-    const storePhone = "573000000000"; // Reemplaza con tu número de WhatsApp
+    const storePhone = "573123187386"; // Reemplaza con tu número de WhatsApp
     window.open(`https://wa.me/${storePhone}?text=${encodeURIComponent(message)}`, '_blank');
   });
 
